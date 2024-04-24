@@ -3,10 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Google Docs</title>
-<link rel="icon" href= 
-"https://ssl.gstatic.com/docs/documents/images/kix-favicon7.ico" 
-          type="image/x-icon"> 
+<title>Keypad GUI</title>
 <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&display=swap" rel="stylesheet">
 <style>
   body {
@@ -82,7 +79,7 @@
 </style>
 </head>
 <body>
-<h1>Maverick Public Beta</h1>
+<h1>Welcome to Keypad GUI</h1>
 <div id="keypad" tabindex="0">
   <div id="display"></div>
   <div>
@@ -106,7 +103,7 @@
     <button onclick="checkCode()"><span class="icon">&#x21b2;</span></button>
   </div>
 </div>
-<h2 id="footer">Code changes every week.</h2>
+<h2 id="footer">Powered by Exo 2</h2>
 
 <script>
   let displayValue = '';
@@ -129,7 +126,7 @@
 
   function checkCode() {
     if (displayValue === '1997') {
-      window.location.href = 'game/new_page.html'; // Replace 'new_page.html' with your desired page
+      window.location.href = 'new_page.html'; // Replace 'new_page.html' with your desired page
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
