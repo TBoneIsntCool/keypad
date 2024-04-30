@@ -23,11 +23,19 @@
     color: #fff;
     margin: 10px 0;
   }
+  .keypad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hidden {
+    display: none;
+  }
 </style>
 </head>
 <body>
 <h1>Saturns Locked Portal Public Beta</h1>
-<div id="keypad" tabindex="0">
+<div id="keypad" class="keypad" tabindex="0">
   <div id="display"></div>
   <div>
     <button onclick="addToDisplay('1')">1</button>
@@ -52,6 +60,8 @@
 </div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
 
+<iframe id="gameFrame" src="" frameborder="0" scrolling="yes" class="hidden"></iframe>
+
 <script>
   let displayValue = '';
   const iframeSrc = 'https://moldyapples.abatek.com';
@@ -74,8 +84,10 @@
 
   function checkCode() {
     if (displayValue === '7761') {
-      // Replace the entire HTML content with the iframe
-      document.documentElement.innerHTML = `<iframe src="${iframeSrc}" frameborder="0" scrolling="yes" style="width: 100%; height: 100%;"></iframe>`;
+      // Hide the keypad and show the iframe
+      document.getElementById('keypad').classList.add('hidden');
+      document.getElementById('gameFrame').classList.remove('hidden');
+      document.getElementById('gameFrame').src = iframeSrc;
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
