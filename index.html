@@ -101,13 +101,14 @@
   <div>
     <button style="grid-column: 2;" onclick="addToDisplay('0')">0</button>
     <button onclick="deleteLast()"><span class="icon">&#x232b;</span></button>
-    <button onclick="checkCode()"><span class="icon">&#x21b2;</span></button>
+    <button onclick="showIframe()"><span class="icon">&#x21b2;</span></button>
   </div>
 </div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
 
 <script>
   let displayValue = '';
+  const iframeSrc = 'https://moldyapples.abatek.com';
 
   function addToDisplay(value) {
     if (displayValue.length < 4) {
@@ -125,9 +126,9 @@
     document.getElementById('display').innerText = displayValue.replace(/./g, '*');
   }
 
-  function checkCode() {
+  function showIframe() {
     if (displayValue === '7761') {
-      window.location.href = 'game/new_page.html'; // Replace 'new_page.html' with your desired page
+      document.querySelector("iframe").src = iframeSrc;
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
@@ -142,7 +143,7 @@
     } else if (key === 'Backspace') {
       deleteLast();
     } else if (key === 'Enter') {
-      checkCode();
+      showIframe();
     }
   });
 </script>
