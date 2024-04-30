@@ -16,26 +16,72 @@
     height: 100vh;
     margin: 0;
     background-color: #333;
-    color: #fff;
   }
   h1, h2 {
     font-family: 'Exo 2', sans-serif;
     color: #fff;
     margin: 10px 0;
   }
-  .keypad {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  #keypad {
+    border-radius: 20px;
+    background-color: #666;
+    padding: 30px;
+    width: auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    outline: none;
+    text-align: center; /* Center the contents */
+    margin: auto; /* Center the keypad */
   }
-  .hidden {
-    display: none;
+  #display {
+    border-radius: 5px;
+    background-color: #444; /* Darker color */
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    width: calc(100% - 40px); /* Adjust the width to match the keypad */
+    max-width: 300px; /* Adjust the max-width to fit your preference */
+    overflow: hidden;
+    height: 40px; /* Reduced height */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center text horizontally */
+    color: #fff; /* Text color */
+    border: none; /* Removed border */
+    outline: none; /* Removed outline */
+    margin-bottom: 20px; /* Increased spacing */
+    margin: 0 auto; /* Center the text box */
+    font-size: 18px; /* Increased font size */
+  }
+  button {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    margin: 10px;
+    background-color: #999;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none;
+  }
+  button:hover {
+    background-color: #333;
+  }
+  .icon {
+    font-size: 24px;
+    vertical-align: middle;
+  }
+  #footer {
+    margin-top: auto;
+    font-size: 14px;
+    color: #fff;
   }
 </style>
 </head>
 <body>
 <h1>Saturns Locked Portal Public Beta</h1>
-<div id="keypad" class="keypad" tabindex="0">
+<div id="keypad" tabindex="0">
   <div id="display"></div>
   <div>
     <button onclick="addToDisplay('1')">1</button>
@@ -60,11 +106,8 @@
 </div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
 
-<iframe id="gameFrame" src="" frameborder="0" scrolling="yes" class="hidden"></iframe>
-
 <script>
   let displayValue = '';
-  const iframeSrc = 'https://moldyapples.abatek.com';
 
   function addToDisplay(value) {
     if (displayValue.length < 4) {
@@ -84,10 +127,7 @@
 
   function checkCode() {
     if (displayValue === '7761') {
-      // Hide the keypad and show the iframe
-      document.getElementById('keypad').classList.add('hidden');
-      document.getElementById('gameFrame').classList.remove('hidden');
-      document.getElementById('gameFrame').src = iframeSrc;
+      window.location.href = 'game/new_page.html'; // Replace 'new_page.html' with your desired page
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
