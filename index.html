@@ -30,7 +30,12 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     outline: none;
     text-align: center; /* Center the contents */
-    margin: auto; /* Center the keypad */
+    margin: 20px auto; /* Center the keypad with margin */
+    position: fixed; /* Fixed positioning */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure keypad is above iframe */
   }
   #display {
     border-radius: 5px;
@@ -80,9 +85,11 @@
   /* Style for the iframe container */
   .iframe-container {
     width: 100%;
-    height: calc(100vh - 120px); /* Adjust height to fit the keypad and footer */
+    height: 100%;
     overflow: hidden;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
   }
   .iframe-container iframe {
     width: 100%;
@@ -116,7 +123,7 @@
     <button onclick="checkCode()"><span class="icon">&#x21b2;</span></button>
   </div>
 </div>
-<div class="iframe-container">
+<div class="iframe-container" id="iframeContainer">
   <iframe src="" frameborder="0" scrolling="yes" id="gameIframe"></iframe>
 </div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
@@ -142,6 +149,8 @@
 
   function checkCode() {
     if (displayValue === '7761') {
+      document.getElementById('keypad').style.display = 'none'; // Hide the keypad
+      document.getElementById('iframeContainer').style.display = 'block'; // Show the iframe container
       document.getElementById('gameIframe').src = 'https://moldyapples.abatek.com'; // Load iframe content
     } else {
       alert('Incorrect code. Please try again.');
