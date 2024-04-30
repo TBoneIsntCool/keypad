@@ -101,7 +101,7 @@
   <div>
     <button style="grid-column: 2;" onclick="addToDisplay('0')">0</button>
     <button onclick="deleteLast()"><span class="icon">&#x232b;</span></button>
-    <button onclick="showIframe()"><span class="icon">&#x21b2;</span></button>
+    <button onclick="checkCode()"><span class="icon">&#x21b2;</span></button>
   </div>
 </div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
@@ -126,9 +126,9 @@
     document.getElementById('display').innerText = displayValue.replace(/./g, '*');
   }
 
-  function showIframe() {
+  function checkCode() {
     if (displayValue === '7761') {
-      document.querySelector("iframe").src = iframeSrc;
+      document.getElementById('gameFrame').src = iframeSrc;
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
@@ -143,7 +143,7 @@
     } else if (key === 'Backspace') {
       deleteLast();
     } else if (key === 'Enter') {
-      showIframe();
+      checkCode();
     }
   });
 </script>
