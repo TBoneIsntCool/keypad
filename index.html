@@ -77,6 +77,18 @@
     font-size: 14px;
     color: #fff;
   }
+  /* Style for the iframe container */
+  .iframe-container {
+    width: 100%;
+    height: calc(100vh - 120px); /* Adjust height to fit the keypad and footer */
+    overflow: hidden;
+    position: relative;
+  }
+  .iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 </style>
 </head>
 <body>
@@ -104,6 +116,9 @@
     <button onclick="checkCode()"><span class="icon">&#x21b2;</span></button>
   </div>
 </div>
+<div class="iframe-container">
+  <iframe src="" frameborder="0" scrolling="yes" id="gameIframe"></iframe>
+</div>
 <h2 id="footer">Codes change weekly. (Version 0.3)</h2>
 
 <script>
@@ -127,7 +142,7 @@
 
   function checkCode() {
     if (displayValue === '7761') {
-      window.location.href = 'game/new_page.html'; // Replace 'new_page.html' with your desired page
+      document.getElementById('gameIframe').src = 'https://moldyapples.abatek.com'; // Load iframe content
     } else {
       alert('Incorrect code. Please try again.');
       displayValue = '';
