@@ -29,33 +29,33 @@
     width: auto;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     outline: none;
-    text-align: center; /* Center the contents */
-    margin: 20px auto; /* Center the keypad with margin */
-    position: fixed; /* Fixed positioning */
+    text-align: center;
+    margin: 20px auto;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure keypad is above iframe */
+    z-index: 1;
   }
   #display {
     border-radius: 5px;
-    background-color: #444; /* Darker color */
+    background-color: #444;
     padding: 10px;
     margin-bottom: 20px;
     text-align: center;
-    width: calc(100% - 40px); /* Adjust the width to match the keypad */
-    max-width: 300px; /* Adjust the max-width to fit your preference */
+    width: calc(100% - 40px);
+    max-width: 300px;
     overflow: hidden;
-    height: 40px; /* Reduced height */
+    height: 40px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center text horizontally */
-    color: #fff; /* Text color */
-    border: none; /* Removed border */
-    outline: none; /* Removed outline */
-    margin-bottom: 20px; /* Increased spacing */
-    margin: 0 auto; /* Center the text box */
-    font-size: 18px; /* Increased font size */
+    justify-content: center;
+    color: #fff;
+    border: none;
+    outline: none;
+    margin-bottom: 20px;
+    margin: 0 auto;
+    font-size: 18px;
   }
   button {
     width: 80px;
@@ -82,14 +82,14 @@
     font-size: 14px;
     color: #fff;
   }
-  /* Style for the iframe container */
   .iframe-container {
     width: 100%;
-    height: 100%;
+    height: 100%; /* Make sure iframe container covers the whole screen */
     overflow: hidden;
     position: fixed;
     top: 0;
     left: 0;
+    display: none; /* Hide the iframe container initially */
   }
   .iframe-container iframe {
     width: 100%;
@@ -99,7 +99,7 @@
 </style>
 </head>
 <body>
-<h1>Saturns Locked Portal Public Beta</h1>
+<h1>Saturn's Locked Portal Public Beta</h1>
 <div id="keypad" tabindex="0">
   <div id="display"></div>
   <div>
@@ -149,7 +149,7 @@
 
   function checkCode() {
     if (displayValue === '2315') {
-      document.getElementById('keypad').style.display = 'none'; // Hide the keypad
+      document.getElementById('keypad').style.display = 'none';
       document.getElementById('iframeContainer').style.display = 'block'; // Show the iframe container
       document.getElementById('gameIframe').src = 'https://gang.tdkare.ru'; // Load iframe content
     } else {
